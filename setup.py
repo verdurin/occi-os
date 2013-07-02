@@ -26,7 +26,7 @@ from setuptools import setup
 
 
 setup(
-    name='occi-os-grizzly',
+    name='openstackocci-grizzly',
     version='1.0',
     description='OCCI interface for Openstack (stable/grizzly).',
     long_description='''
@@ -49,7 +49,7 @@ setup(
               'occi_os_api.nova_glue'],
     zip_safe=False,
     install_requires=[
-        'setuptools',
+        'setuptools', 'nova'
         ],
     entry_points='''
       [paste.app_factory]
