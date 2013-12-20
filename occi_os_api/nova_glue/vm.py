@@ -82,6 +82,9 @@ def create_vm(entity, context):
             key_name = entity.attributes[attr]
             attr = 'org.openstack.credentials.publickey.data'
             key_data = entity.attributes[attr]
+        elif mixin == os_addon.OS_USER_DATA_EXT:
+            attr = 'org.openstack.compute.user_data'
+            user_data = entity.attributes[attr]
         # Look for security group. If the group is non-existant, the
         # call to create will fail.
         if os_addon.SEC_GROUP in mixin.related:
@@ -438,5 +441,5 @@ def retrieve_image(uid, context):
 def retrieve_images(context):
     return COMPUTE_API.image_service.detail(context)
 
-def retrieve_flavors():
-    return flavors.get_all_types()
+def retrieve_instance_types():
+    return instance_types.get_all_types()
